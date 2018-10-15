@@ -1,3 +1,6 @@
+$h3Color:#555555;
+$pSize:15px;
+
 @import url('https://fonts.googleapis.com/css?family=Raleway:400,500,600,700,800');
 @import url('https://fonts.googleapis.com/css?family=Montserrat:200,300,400');
 
@@ -178,16 +181,21 @@ img[alt="search"] {
 }
 
 .services {
-    column-count: 4;
-    margin: 80px 20%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 80px 5%;
+
 }
 
 .web,
 .development,
 .customization,
 .marketing {
-    width: 266px;
     text-align: center;
+    justify-content: space-around;
+    margin-left: 30px;
+    width: 200px;
 }
 
 
@@ -275,7 +283,7 @@ img[alt="search"] {
 .projects h3,
 .posts h3 {
     font-family: Raleway;
-    color: #555555;
+    color: $h3Color;
     font-size: 30px;
     font-weight: 600;
     text-align: center;
@@ -294,6 +302,7 @@ img[alt="right browser screenshot"] {
     top: 82px;
     right: -435px;
     max-width: 770px;
+    display: none;
 }
 
 img[alt="central browser screenshot"] {
@@ -302,6 +311,7 @@ img[alt="central browser screenshot"] {
     z-index: 1;
     right: -100px;
     max-width: 770px;
+    display: none;
 }
 
 img[alt="left browser screenshot"] {
@@ -386,19 +396,25 @@ img[alt="left browser screenshot"] {
 
 
 .filter {
-        width: 568px;
-        margin: 0 auto;
-    }
+    width: 568px;
+    margin: 0 auto;
+}
 
 .gallery {
     margin: 40px auto 0;
-    width: 1170px;
+    max-width: 1170px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
 }
 
 .gallery figure {
+    /*
     display: inline-block;
     margin-bottom: 30px;
+*/
     position: relative;
+    width: 370px;
 }
 
 .gallery figure .far {
@@ -408,9 +424,11 @@ img[alt="left browser screenshot"] {
     display: none;
 }
 
+/*
 .gallery figure:not(:nth-child(3n)) {
     margin-right: 26px;
 }
+*/
 
 .gallery figcaption {
     background-color: #fbfaf8;
@@ -508,7 +526,7 @@ img[alt="left browser screenshot"] {
     color: #c7b299;
 }
 
- .load {
+.load {
     margin: 0 45%;
     -webkit-transition: background 0.5s;
     -moz-transition: background 0.5s;
@@ -521,6 +539,7 @@ button.load:hover {
 
 .clearfix {
     clear: both;
+    overflow: auto;
 }
 
 .video {
@@ -534,10 +553,12 @@ button.load:hover {
 
 .video_entry {
     position: absolute;
+    align-content: center;
     top: 58%;
     left: 28%;
     right: 28%;
     max-width: 552px;
+    margin: auto;
 }
 
 .video_entry h3 {
@@ -572,14 +593,15 @@ button.load:hover {
 
 .description {
     float: right;
-    margin-right: 20%;
-/*    background: url(img/iPhone%20in%20hand.png) no-repeat 20% 10px;*/
+    margin-right: 17%;
+    margin-bottom: 10px;
+    /*    background: url(img/iPhone%20in%20hand.png) no-repeat 20% 10px;*/
 }
 
 .mobile h3 {
     padding-top: 195px;
     font-family: Raleway;
-    color: #555555;
+    color: $h3Color;
     font-size: 30px;
     font-weight: 600;
 }
@@ -615,7 +637,7 @@ button.load:hover {
 
 .mobile {
     background-color: #fbfaf8;
-    height: 695px;
+    height: auto;
 }
 
 .statistics {
@@ -641,7 +663,7 @@ button.load:hover {
 .wrap {
     width: 843px;
     column-count: 5;
-   margin: 0 auto;
+    margin: 0 auto;
 }
 
 .statistics .clients .number,
@@ -680,18 +702,25 @@ button.load:hover {
 .entries {
     margin: 0 auto;
     max-width: 1170px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
 }
 
 .entries figure {
-    display: inline-block;
+    /*    display: inline-block;*/
     max-width: 370px;
     position: relative;
-    margin: 0 auto;
+    /*    margin: 0 auto;*/
+    margin-bottom: 20px;
+    align-self: center;
 }
 
+/*
 .entries figure:not(:first-child) {
     margin-left: 26px;
 }
+*/
 
 .entries figcaption {
     padding-left: 30px;
@@ -817,15 +846,29 @@ button.load:hover {
 
 .trademarks {
     background-image: url(img/trademark-bg.jpg);
-    height: 489px;
+    background-size: cover;
+    min-height: 489px;
+    /*
     padding-left: 15%;
     padding-right: 15%;
+*/
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding-top: 10%;
 }
 
+/*
+.trademarks div {
+    
+}
+*/
+
 .trademarks img {
-    padding-top: 8%;
-    margin-right: 45px;
-    margin-left: 45px;
+    align-self: baseline;
+    width: 200px;
+    margin-left: 30px;
 }
 
 .prefoot {
@@ -968,21 +1011,24 @@ button.load:hover {
     color: #c7b299;
 }
 
-@media only screen and (min-width: 1824px) {
-    /* стили */
-}
-
 
 @media only screen and (min-width: 1224px) {
+    
+    .ideas p, .projects p, .posts p {
+        font-size: $pSize - 2px;
+    }
+
+    .ideas h3,
+    .projects h3,
+    .posts h3 {
+        font-size: 24px;
+    }
+
     .web,
     .development,
     .customization,
     .marketing {
         width: 200px;
-    }
-
-    .services {
-        margin: 80px 5%;
     }
 
     .screens {
@@ -1000,35 +1046,150 @@ button.load:hover {
     }
 
     .description {
-        margin-right: 20px;
+        /*        margin-right: 20px;*/
         max-width: 500px;
     }
-    
+
+    /*
     .entries figure {
         max-width: 350px;
     }
+*/
+
+    .mobile img {
+        margin-left: 4%
+    }
+
+    .prefoot {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around
+    }
+
+    .prefoot .info {
+        margin-left: 0;
+    }
+
+    .info,
+    .recent-posts,
+    .twitter,
+    .dribble {
+        margin-right: 0;
+    }
+
+    .dribble {
+        width: 300px;
+    }
+
+    .footer .left {
+        margin: 45px 5% 45px;
+    }
+
+    .footer .right {
+        margin-right: 5%;
+    }
+    
+    .mobile h3 {
+        text-align: center;
+    }
 }
 
-@media only screen and (min-width: 320px) and (max-height: 640px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 2) {
-    /* стили */
-}
+@media only screen and (max-width: 1224px) {
+    
+    .projects p, .posts p {
+        width: 100%;
+        margin: 0 auto;
+    }
+    
+    .ideas p, .projects p, .posts p {
+        font-size: $pSize - 2px;
+    }
+    
+    .ideas h3,
+    .projects h3,
+    .posts h3 {
+        font-size: 24px;
+    }
+    
+    .mobile img {
+        display: none;
+    }
 
-@media only screen and (min-width: 320px) and (max-height: 640px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2) {
-    /* стили */
-}
+    .mobile {
+        /*        display: flex-column;*/
+        justify-content: space-around;
+        height: auto;
+    }
 
-@media only screen and (min-width: 320px) and (max-height: 640px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 3) {
-    /* стили */
-}
+    .mobile h3 {
+        padding-top: 40px;
+    }
 
-@media only screen and (min-width: 320px) and (max-height: 640px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 3) {
-    /* стили */
-}
+    .purchase {
+        height: 170px;
+    }
 
-@media only screen and (min-width: 360px) and (max-height: 640px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 3) {
-    /* стили */
-}
+    .purchase h4 {
+        font-size: 24px;
+    }
 
-@media only screen and (min-width: 360px) and (max-height: 640px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 3) {
-    /* стили */
+    .entries {
+        flex-flow: column;
+        justify-content: space-around;
+    }
+
+
+    .fa-chevron-left,
+    .fa-chevron-right {
+        border: none;
+        padding: 0;
+    }
+
+    .fa-chevron-left {
+        padding-right: 20px;
+    }
+
+    .trademarks {
+        flex-direction: column;
+    }
+
+    .trademarks img {
+        align-self: center;
+        margin-bottom: 30px;
+    }
+
+    .trademarks div {
+        display: flex;
+        flex-direction: column;
+        margin-top: 30px;
+    }
+
+    .prefoot {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around
+    }
+
+    .prefoot .info {
+        margin-left: 0;
+    }
+
+    .info,
+    .recent-posts,
+    .twitter,
+    .dribble {
+        margin-right: 0;
+    }
+
+    .dribble {
+        width: 300px;
+    }
+
+    .footer .left {
+        margin: 45px 5% 45px;
+    }
+
+    .footer .right {
+        margin-right: 5%;
+    }
 }
